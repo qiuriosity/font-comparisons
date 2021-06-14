@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { Container } from '@material-ui/core';
+import SearchBar from './components/SearchBar';
+import FontList from './components/FontList';
+import React, { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
+      <FontList
+        searchQuery={searchQuery}
+      />
+    </Container>
   );
 }
 
